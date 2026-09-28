@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "北航雨课堂 · 自动续播",
+  "version": "1.2.6",
+  "description": "课程视频结束后自动播放目录中的下一段，使用 2 倍速，并处理切换标签页导致的暂停。",
+  "minimum_chrome_version": "102",
+  "permissions": [
+    "storage"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "北航雨课堂自动续播",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://buaa.yuketang.cn/ai-workspace/lms-graph/*"
+      ],
+      "js": [
+        "logic.js",
+        "content.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'none'"
+  }
+}

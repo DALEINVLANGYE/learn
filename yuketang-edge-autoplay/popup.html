@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>雨课堂续播助手</title>
+    <link rel="stylesheet" href="popup.css">
+    <script src="popup.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <header>
+        <span class="eyebrow">北航雨课堂 · 播放辅助</span>
+        <h1>续播助手</h1>
+        <p class="intro">自然播放结束后，切换下一视频并使用 <strong>2 倍速</strong>。</p>
+      </header>
+
+      <section class="status-card" aria-labelledby="state-heading">
+        <div class="status-line">
+          <h2 id="state-heading">当前状态</h2>
+          <span id="rate" class="rate" hidden></span>
+        </div>
+        <p id="phase" class="phase">正在连接…</p>
+        <p id="message" class="message" role="status" aria-live="polite" aria-atomic="true">正在读取当前课程页。</p>
+      </section>
+
+      <dl class="lessons">
+        <div>
+          <dt>正在观看</dt>
+          <dd id="current-title">—</dd>
+        </div>
+        <div>
+          <dt>下一视频</dt>
+          <dd id="next-title">—</dd>
+        </div>
+      </dl>
+
+      <div class="actions">
+        <button id="start" class="primary" type="button" disabled>开启自动续播</button>
+        <button id="stop" class="secondary" type="button" disabled>停止自动续播</button>
+      </div>
+      <button id="refresh" class="refresh" type="button">重新连接</button>
+
+      <footer>
+        <p>你手动暂停时，视频会保持暂停。停止助手不会暂停当前视频。</p>
+        <p>开关只作用于当前课程页。关闭此面板后，助手仍可运行；也可使用课程页上的助手开关。</p>
+      </footer>
+    </main>
+  </body>
+</html>
